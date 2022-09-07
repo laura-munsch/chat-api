@@ -1,4 +1,5 @@
 class User < ApplicationRecord
-    has_many :messages, foreign_key: :sender_id
-    has_many :messages, foreign_key: :recipient_id
+  def messages
+    Message.where("sender_id = ? OR recipient_id = ?", self.id, self.id)
+  end
 end
