@@ -11,7 +11,9 @@ User.destroy_all
 
 user1 = User.create(name: "Carlson", firstname: "Anne", phone: 684539203)
 user2 = User.create(name: "Foster", firstname: "Nathan", phone: 722487490)
-user1 = User.create(name: "Koyne", firstname: "Frankie", phone: 667884291)
+user3 = User.create(name: "Koyne", firstname: "Frankie", phone: 667884291)
 
-message1 = Message.create(content: "Bonjour Nathan", sender_id: 1, recipient_id: 2)
-message2 = Message.create(content: "Bonjour Anne !", sender_id: 2, recipient_id: 1)
+message1 = Message.create(content: "Bonjour Nathan", sender_id: user1.id, recipient_id: user2.id)
+message2 = Message.create(content: "Bonjour Anne !", sender_id: user2.id, recipient_id: user1.id)
+message3 = Message.create(content: "Salut Frankie, comment vas-tu ?", sender_id: user1.id, recipient_id: user3.id)
+message4 = Message.create(content: "Ça va ?", sender_id: user1.id, recipient_id: user2.id)
