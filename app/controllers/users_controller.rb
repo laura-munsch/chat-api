@@ -12,12 +12,16 @@ class UsersController < ApplicationController
   end
 
   def create
-    @User = User.create(
+    @User = User.new(
       name: params[:name],
       firstname: params[:firstname],
       phone: params[:phone]
     )
 
-    render json: @User
+    if @User.save
+      render json: @User
+    else
+      render json: { errors: @User.errors }, status: 422
+    end
   end
 end
