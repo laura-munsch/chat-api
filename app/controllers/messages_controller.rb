@@ -1,6 +1,10 @@
 class MessagesController < ApplicationController
-  def index
-    @Messages = User.find(params[:user_id]).messages
+  def indexByUsers
+    @Users = [params[:user1], params[:user2]]
+    @Messages = Message.where(
+        sender_id: @Users,
+        recipient_id: @Users
+    )
     
     render json: @Messages
   end
