@@ -1,24 +1,30 @@
-# README
+# Readme
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ce projet de chat fonctionne avec une API et un front-end séparés en deux dépôts GitHub distincts. Il faut utiliser les deux pour faire fonctionner le projet. 
 
-Things you may want to cover:
+- [Dépôt de l’API](https://github.com/laura-munsch/chat-api)
+- [Dépôt du front-end](https://github.com/laura-munsch/chat-front)
 
-* Ruby version
+## Configuration
 
-* System dependencies
+### API
 
-* Configuration
+- Ruby v3.1.2
+- Rails v7.0.3
+- Base de données : PostgreSQL v1.1
 
-* Database creation
+### Front-end
 
-* Database initialization
+- React v18.2
+- Client HTTP : Axios v0.27.2
+- Styles : Dart Sass v1.54.9
 
-* How to run the test suite
+## Lancer le projet en mode développement
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. Récupérer le projet de l’API (lien github) et y ouvrir un terminal
+    1. Créer la base de données en utilisant `rails db:create` puis les tables dans la base de données avec `rails db:migrate`
+    2. Y insérer les données par défaut avec `rails db:seed`
+    3. Lancer le serveur local avec `rails s`
+2. Récupérer le projet React avec le front (lien github) 
+    1. Modifier l’URL de l’API dans le fichier .env avec l’adresse du serveur local qui a été ouvert
+    2. Lancer le projet sur un serveur de développement local avec `npm run start`
